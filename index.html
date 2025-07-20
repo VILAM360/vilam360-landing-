@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VILAM 360 – Seguridad y Futuro</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('vilam_landing_futuristic.png') no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+    }
+    .lang-selector {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      z-index: 1000;
+    }
+    .lang-selector button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      margin-left: 8px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .register-button {
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      background: #28a745;
+      color: white;
+      border: none;
+      padding: 14px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal iframe {
+      width: 90%;
+      max-width: 700px;
+      height: 80vh;
+      border: none;
+      border-radius: 10px;
+    }
+    .modal .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="lang-selector">
+    <button onclick="setLang('es')">ES</button>
+    <button onclick="setLang('en')">EN</button>
+  </div>
+
+  <button class="register-button" onclick="document.getElementById('modal').style.display='flex'">
+    Registrarse / Sign up
+  </button>
+
+  <div class="modal" id="modal">
+    <div class="close" onclick="document.getElementById('modal').style.display='none'">&times;</div>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfEjXYZ123ABC/viewform?embedded=true" allowfullscreen></iframe>
+  </div>
+
+  <script>
+    const textContent = {
+      es: {
+        button: "Registrarse",
+      },
+      en: {
+        button: "Sign up",
+      }
+    };
+    function setLang(lang) {
+      document.querySelector('.register-button').textContent = textContent[lang].button + " / " + textContent[lang === 'es' ? 'en' : 'es'].button;
+    }
+  </script>
+</body>
+</html>
