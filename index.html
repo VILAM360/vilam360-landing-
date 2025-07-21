@@ -20,7 +20,6 @@
   <!-- End Google Tag Manager -->
 
   <style>
-    /* Reset y fuentes */
     * {
       margin: 0;
       padding: 0;
@@ -34,7 +33,6 @@
       background-color: #f9f9f9;
     }
 
-    /* Layout principal */
     .container {
       display: flex;
       flex-direction: row;
@@ -49,7 +47,6 @@
       background-repeat: no-repeat;
       background-size: 100%;
       background-position: center;
-
     }
 
     .right-side {
@@ -57,7 +54,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      /* background-color: #f9f9f9; */
       background-color: #111C2E;
       padding: 20px;
     }
@@ -135,7 +131,6 @@
       margin-top: 30px;
     }
 
-    /* Responsive para móviles */
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
@@ -177,7 +172,7 @@
         <div class="form-container">
           <form id="vilamForm"
             action="https://docs.google.com/forms/d/e/1FAIpQLScqVEQNU8LQxCRa-rygOJ_OWLcxX_THsMvGo8_4DJ7UUa-pdw/formResponse"
-            method="POST">
+            method="POST" target="hidden_iframe">
             <input type="email" name="entry.71644271" placeholder="Correo electrónico" required>
             <input type="date" name="entry.1617299238" required>
             <input type="text" name="entry.2102675011" placeholder="Ciudad" required>
@@ -206,9 +201,11 @@
       const iframe = document.querySelector('iframe[name="hidden_iframe"]');
       iframe.onload = function () {
         if (submitted) {
-          document.getElementById('successMessage').style.display = 'block';
-          document.getElementById('vilamForm').reset();
-          submitted = false;
+          setTimeout(() => {
+            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('vilamForm').reset();
+            submitted = false;
+          }, 300);
         }
       };
     });
