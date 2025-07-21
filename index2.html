@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VILAM 360 – Transporte Seguro</title>
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start': new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-PNH9TC9N');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <style>
+    /* Reset y fuentes */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    /* Layout principal */
+    .container {
+      display: flex;
+      flex-direction: row;
+      height: 100vh;
+      width: 100%;
+    }
+
+    .left-side {
+      flex: 1;
+      background-color: #111C2E;
+      background-image: url('images/bg-VILAM.jpg');
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-position: center;
+
+    }
+
+    .right-side {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* background-color: #f9f9f9; */
+      background-color: #111C2E;
+      padding: 20px;
+    }
+
+    .overlay {
+      max-width: 400px;
+      width: 100%;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .overlay .main-logo {
+      width: 250px;
+      margin-bottom: 20px;
+    }
+
+    .overlay p {
+      margin-bottom: 20px;
+      font-size: 1rem;
+      color: #444;
+    }
+
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .form-container input {
+      padding: 12px 16px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      width: 100%;
+      transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+
+    .form-container input:focus {
+      border-color: #0d6efd;
+      outline: none;
+      box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    }
+
+    .form-container button {
+      padding: 12px 16px;
+      font-size: 1rem;
+      background-color: #111C2E;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    .form-container button:hover {
+      background-color: #2b3d58;
+    }
+
+    .success-message {
+      margin-top: 10px;
+      color: green;
+      display: none;
+      font-weight: 500;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    /* Responsive para móviles */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .left-side {
+        height: 50vh;
+        flex: unset;
+      }
+
+      .right-side {
+        flex: unset;
+        height: 50vh;
+        padding: 40px 20px;
+      }
+
+      .overlay .main-logo {
+        width: 180px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PNH9TC9N" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div class="container">
+    <div class="left-side"></div>
+    <div class="right-side">
+      <div class="overlay">
+        <img class="main-logo" src="images/logo-VILAM.png" alt="VILAM 360 Logo">
+        <p>Formulario de solicitud.</p>
+        <div class="form-container">
+          <form id="vilamForm"
+            action="https://docs.google.com/forms/d/e/1FAIpQLScqVEQNU8LQxCRa-rygOJ_OWLcxX_THsMvGo8_4DJ7UUa-pdw/formResponse"
+            method="POST">
+            <input type="email" name="entry.71644271" placeholder="Correo electrónico" required>
+            <input type="date" name="entry.1617299238" required>
+            <input type="text" name="entry.2102675011" placeholder="Ciudad" required>
+            <button type="submit">Enviar</button>
+            <div class="social-icons">
+              <a href="#" target="_blank"><img src="images/instagram-icon.png" width="28px" alt="Instagram"></a>
+              <a href="#" target="_blank"><img src="images/facebook-icon.png" width="28px" alt="Facebook"></a>
+              <a href="#" target="_blank"><img src="images/x-icon.png" width="28px" alt="X"></a>
+            </div>
+          </form>
+          <iframe name="hidden_iframe" style="display:none;"></iframe>
+          <div class="success-message" id="successMessage">¡Registro enviado con éxito!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let submitted = false;
+
+    document.getElementById('vilamForm').addEventListener('submit', function () {
+      submitted = true;
+    });
+
+    window.addEventListener('load', function () {
+      const iframe = document.querySelector('iframe[name="hidden_iframe"]');
+      iframe.onload = function () {
+        if (submitted) {
+          document.getElementById('successMessage').style.display = 'block';
+          document.getElementById('vilamForm').reset();
+          submitted = false;
+        }
+      };
+    });
+  </script>
+
+</body>
+
+</html>
