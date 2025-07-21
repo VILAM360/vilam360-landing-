@@ -172,7 +172,9 @@
         <div class="form-container">
           <form id="vilamForm"
             action="https://docs.google.com/forms/d/e/1FAIpQLScqVEQNU8LQxCRa-rygOJ_OWLcxX_THsMvGo8_4DJ7UUa-pdw/formResponse"
-            method="POST" target="hidden_iframe">
+            method="POST"
+            target="hidden_iframe"
+            onsubmit="return submitForm()">
             <input type="email" name="entry.71644271" placeholder="Correo electrónico" required>
             <input type="date" name="entry.1617299238" required>
             <input type="text" name="entry.2102675011" placeholder="Ciudad" required>
@@ -183,7 +185,10 @@
               <a href="#" target="_blank"><img src="images/x-icon.png" width="28px" alt="X"></a>
             </div>
           </form>
+          <!-- IFRAME OCULTO -->
           <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+          <!-- MENSAJE ÉXITO -->
           <div class="success-message" id="successMessage">¡Registro enviado con éxito!</div>
         </div>
       </div>
@@ -193,9 +198,10 @@
   <script>
     let submitted = false;
 
-    document.getElementById('vilamForm').addEventListener('submit', function () {
+    function submitForm() {
       submitted = true;
-    });
+      return true; // permite que el formulario se envíe al iframe oculto
+    }
 
     window.addEventListener('load', function () {
       const iframe = document.querySelector('iframe[name="hidden_iframe"]');
